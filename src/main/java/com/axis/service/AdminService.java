@@ -8,5 +8,7 @@ public interface AdminService {
 	
 	AdminDto addNewAdmin(AdminDto adminDto);
 	List<AdminDto> getAllAdmin();
+	
+	void deleteAdmin(int id);
 
 }

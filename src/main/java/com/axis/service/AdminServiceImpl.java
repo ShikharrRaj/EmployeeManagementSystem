@@ -48,4 +48,10 @@ public class AdminServiceImpl implements AdminService{
 		
 	}
 
+	@Override
+	public void deleteAdmin(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
