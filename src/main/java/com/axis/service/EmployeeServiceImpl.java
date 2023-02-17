@@ -1,6 +1,7 @@
 package com.axis.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +59,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		return employee;
 		
+	}
+	
+	public List<Employee> getAllEmp() {
+		return employeeRepository.findAll();
+	}
+
+	public Employee getEMpById(int id) {
+		Optional<Employee> e = employeeRepository.findById(id);
+		if (e.isPresent()) {
+			return e.get();
+		}
+		return null;
+	}
+
+	public void deleteEMp(int id) {
+		employeeRepository.deleteById(id);
 	}
 
 	

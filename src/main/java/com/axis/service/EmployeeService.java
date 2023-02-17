@@ -9,10 +9,9 @@ import com.axis.repository.EmployeeRepository;
 
 public interface EmployeeService {
 	
-	
-	
 	EmployeeDto addNewEmployee(EmployeeDto employeeDto);
 	List<EmployeeDto> getAllEmployee();
+	void deleteEmployeeById(int id);
 	
 //	public void deleteEmployeeById(int id) {
 	 //     EmployeeRepository.deleteById(id);
