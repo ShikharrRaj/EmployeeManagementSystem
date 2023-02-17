@@ -33,7 +33,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/register")
-	public String empRegister(@ModelAttribute Employee e, HttpSession session) {
+	public String empRegister(@ModelAttribute EmployeeDto employeeDto, HttpSession session) {
 		employeeService.addNewEmployee(employeeDto);
 		session.setAttribute("msg", "Emplyoee Added Sucessfully..");
 		return "redirect:/";
@@ -41,7 +41,7 @@ public class EmployeeController {
 	
 	@DeleteMapping("/deleteEmp/{id}")
 	public void deleteEmployee(@PathVariable("id") int id) {
-	   employeeService.deleteEmployeeById(id);
+	   employeeService.deleteEMp(id);
 	}
 
 }
