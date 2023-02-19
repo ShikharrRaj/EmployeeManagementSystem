@@ -20,6 +20,7 @@ public interface EmployeeService {
 	//	return employeeRepository.findAll();
 	//}
 
+
 	public default Employee getEMpById(int id) {
 		Optional<Employee> e = employeeRepository.findById(id);
 		if (e.isPresent()) {

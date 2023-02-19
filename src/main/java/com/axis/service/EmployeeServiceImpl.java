@@ -61,9 +61,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 	
-	public List<Employee> getAllEmp() {
-		return employeeRepository.findAll();
-	}
+	//public List<Employee> getAllEmp() {
+		//return employeeRepository.findAll();
+	//}
 
 	public Employee getEMpById(int id) {
 		Optional<Employee> e = employeeRepository.findById(id);

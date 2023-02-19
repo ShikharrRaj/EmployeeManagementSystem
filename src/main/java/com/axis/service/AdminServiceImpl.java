@@ -1,12 +1,14 @@
 package com.axis.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.axis.dto.AdminDto;
 import com.axis.entity.Admin;
+import com.axis.entity.Employee;
 import com.axis.repository.AdminRepository;
 
 @Service
@@ -48,10 +50,21 @@ public class AdminServiceImpl implements AdminService{
 		
 	}
 
-	@Override
-	public void deleteAdmin(int id) {
+	public void deleteAdminById(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void deleteAdmin(int id) {
+		adminRepository.deleteById(id);
+	}
+	
+	public Admin getAdminById(int id) {
+		Optional<Admin> a = adminRepository.findById(id);
+		if (a.isPresent()) {
+			return a.get();
+		}
+		return null;
 	}
 
 }
