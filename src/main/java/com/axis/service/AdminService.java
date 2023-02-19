@@ -15,9 +15,10 @@ public interface AdminService {
 	public static final AdminRepository adminRepository = null;
 	
 	AdminDto addNewAdmin(AdminDto adminDto);
-	List<AdminDto> getAllAdmin();
 	
-	//void deleteAdmin(int id);
+	List<Admin> getAllAdmin();
+	
+	
 	
 	public default Admin getAdminById(int id) {
 		Optional<Admin> a = adminRepository.findById(id);

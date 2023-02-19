@@ -14,12 +14,13 @@ public interface EmployeeService {
 	public static final EmployeeRepository employeeRepository = null;
 	
 	EmployeeDto addNewEmployee(EmployeeDto employeeDto);
-	List<EmployeeDto> getAllEmployee();
 	
-	//public List<Employee> getAllEmp() {
-	//	return employeeRepository.findAll();
+	List<Employee> getAllEmployee();
+	
+	//public default void editEmployee(int id) {
+	//	employeeRepository.getById(id);
+		
 	//}
-
 
 	public default Employee getEMpById(int id) {
 		Optional<Employee> e = employeeRepository.findById(id);

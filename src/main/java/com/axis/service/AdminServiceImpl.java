@@ -24,9 +24,9 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public List<AdminDto> getAllAdmin() {
+	public List<Admin> getAllAdmin() {
 		// TODO Auto-generated method stub
-		return null;
+		return adminRepository.findAll();
 	}
 	
 	private AdminDto convertToDto(Admin admin) {
@@ -50,10 +50,7 @@ public class AdminServiceImpl implements AdminService{
 		
 	}
 
-	public void deleteAdminById(int id) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	public void deleteAdmin(int id) {
 		adminRepository.deleteById(id);

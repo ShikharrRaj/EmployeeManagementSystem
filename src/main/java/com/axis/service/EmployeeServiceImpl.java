@@ -21,11 +21,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// TODO Auto-generated method stub
 		return convertToDto(employeeRepository.save(convertToEntity(employeeDto)));
 	}
-
-	@Override
-	public List<EmployeeDto> getAllEmployee() {
+	
+    @Override
+	public List<Employee> getAllEmployee() {
 		// TODO Auto-generated method stub
-		return null;
+		return employeeRepository.findAll();
 	}
 	
 	private EmployeeDto convertToDto(Employee employee) {
@@ -61,9 +61,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 	
-	//public List<Employee> getAllEmp() {
-		//return employeeRepository.findAll();
-	//}
 
 	public Employee getEMpById(int id) {
 		Optional<Employee> e = employeeRepository.findById(id);
@@ -77,10 +74,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.deleteById(id);
 	}
 
-	public void deleteEmployeeById(int id) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 	
 
