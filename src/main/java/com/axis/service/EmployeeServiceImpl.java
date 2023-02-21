@@ -74,9 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 	}
 
-	public void deleteEMp(int id) {
-		employeeRepository.deleteById(id);
-	}
+	
 
 	@Override
 	public Employee updateEmployeeById(int id, Employee employee) {
@@ -86,6 +84,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}else {
 			throw new IdNotFoundException("No Id is present to update");
 		}
+	}
+
+	@Override
+	public String deleteEmployeeById(int id) {
+		employeeRepository.deleteById(id);
+		return "Employee deleted";
 	}
 
 	

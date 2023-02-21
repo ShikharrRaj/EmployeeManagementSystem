@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,8 +36,8 @@ public class AdminController {
 	@Autowired
 	EmployeeService employeeService;
 	
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	//@Autowired
+	//private BCryptPasswordEncoder passwordEncoder;
 	
 	@PostMapping("/addAdmin")
 	public ResponseEntity<AdminDto>addAdmin(@RequestBody AdminDto admindto){
@@ -60,8 +60,8 @@ public class AdminController {
 	}
 	
 	@DeleteMapping("/deleteadmin/{id}")
-	public void deleteAdmin(@PathVariable("id") int id) {
-	   adminService.deleteAdmin(id);
+	public ResponseEntity<String> deleteAdminById(@PathVariable int id){
+		return new ResponseEntity<String>(adminService.deleteAdminById(id),HttpStatus.OK);
 	}
 	
 	@PostMapping("/addEmp")
@@ -85,8 +85,8 @@ public class AdminController {
 	}
 	
 	@DeleteMapping("/deleteEmp/{id}")
-	public void deleteEmployee(@PathVariable("id") int id) {
-	   employeeService.deleteEMp(id);
+	public ResponseEntity<String> deleteEmployeeById(@PathVariable int id){
+		return new ResponseEntity<String>(employeeService.deleteEmployeeById(id),HttpStatus.OK);
 	}
 
 

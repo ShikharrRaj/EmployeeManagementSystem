@@ -58,8 +58,9 @@ public class AdminServiceImpl implements AdminService{
 
 	
 	
-	public void deleteAdmin(int id) {
+	public String deleteAdminById(int id) {
 		adminRepository.deleteById(id);
+		return "Admin deleted";
 	}
 	
 	public Admin getAdminById(int id) {
@@ -140,9 +141,12 @@ public class AdminServiceImpl implements AdminService{
 		}
 	}
 
-	public void deleteEMp(int id) {
+	@Override
+	public String deleteEmployeeById(int id) {
 		employeeRepository.deleteById(id);
+		return "Employee deleted";
 	}
+
 
 	@Override
 	public Employee updateEmployeeById(int id, Employee employee) {

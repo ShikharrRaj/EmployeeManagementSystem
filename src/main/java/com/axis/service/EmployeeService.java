@@ -11,18 +11,15 @@ import com.axis.repository.EmployeeRepository;
 
 public interface EmployeeService {
 	
-	public static final EmployeeRepository employeeRepository = null;
+	
 	
 	EmployeeDto addNewEmployee(EmployeeDto employeeDto);
 	
 	List<Employee> getAllEmployee();
 	
-	
 	Employee updateEmployeeById(int id, Employee employee);
 
 	Employee getEmployeeById(int id);
 
-	public default void deleteEMp(int id) {
-		employeeRepository.deleteById(id);
-	}
+	String deleteEmployeeById(int id);
 }
