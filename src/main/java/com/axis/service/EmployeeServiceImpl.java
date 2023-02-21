@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.axis.dto.EmployeeDto;
+import com.axis.entity.Admin;
 import com.axis.entity.Employee;
+import com.axis.exception.IdNotFoundException;
 import com.axis.repository.EmployeeRepository;
 
 @Service
@@ -62,16 +64,28 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 	
 
-	public Employee getEMpById(int id) {
-		Optional<Employee> e = employeeRepository.findById(id);
-		if (e.isPresent()) {
-			return e.get();
+	public Employee getEmployeeById(int id) {
+		Optional<Employee> a = employeeRepository.findById(id);
+		if (a.isPresent()) {
+			return employeeRepository.getById(id);
+			 
+		}else {
+			throw new IdNotFoundException("No Employee found");
 		}
-		return null;
 	}
 
 	public void deleteEMp(int id) {
 		employeeRepository.deleteById(id);
+	}
+
+	@Override
+	public Employee updateEmployeeById(int id, Employee employee) {
+		Optional<Employee> e=employeeRepository.findById(id);
+		if(e.isPresent()) {
+			return employeeRepository.save(employee);
+		}else {
+			throw new IdNotFoundException("No Id is present to update");
+		}
 	}
 
 	

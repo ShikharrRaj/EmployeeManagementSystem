@@ -17,18 +17,10 @@ public interface EmployeeService {
 	
 	List<Employee> getAllEmployee();
 	
-	//public default void editEmployee(int id) {
-	//	employeeRepository.getById(id);
-		
-	//}
+	
+	Employee updateEmployeeById(int id, Employee employee);
 
-	public default Employee getEMpById(int id) {
-		Optional<Employee> e = employeeRepository.findById(id);
-		if (e.isPresent()) {
-			return e.get();
-		}
-		return null;
-	}
+	Employee getEmployeeById(int id);
 
 	public default void deleteEMp(int id) {
 		employeeRepository.deleteById(id);
